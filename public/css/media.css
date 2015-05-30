@@ -1,0 +1,323 @@
+/*******SMALL MEDIA SCREENS*******/
+@media screen and (max-width: 900px) {
+
+
+.top-menu {
+    color: #ccd;
+    font-size: 1em;
+     text-align: center;
+}
+
+.top-menu li{
+    
+    margin-bottom:30px;
+    margin-left: 17px;
+}
+
+.top-menu a{
+    text-decoration: none;
+    color: inherit;
+    padding: 7px 10px;
+    border-radius: 7px;
+}
+.top-menu a:hover{
+    color: #FCFFF1;
+    background-color: #F8F6F3;
+}
+.logo{
+    position: relative;
+    top: 50px;
+    left: -50px;
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+.container {
+    top: -130px;
+    width: 466px;
+    height: 260px;
+    margin: 0px auto;
+    font: 1em 'Rationale', sans-serif;
+}
+.img {
+    top: -33px;
+}
+  .img1 .frag {background-image: url(../images/tulip.png);background-size: cover;}
+.img2 .frag {background-image: url(../images/plate.png);background-size: cover;}
+.img3 .frag {background-image: url(../images/mascarpone.png);background-size: cover;}
+.img4 .frag {background-image: url(../images/malina.png);background-size: cover;}
+.img5 .frag {background-image: url(../images/milkxs.png);background-size: cover;}
+.img6 .frag {background-image:url(../images/ciocolata.png);background-size: cover;
+}
+.frag {
+    width: 75px;
+    height: 300px;
+    float: left;
+    opacity: 0;
+    z-index: 0;
+    
+  transform-origin: center right;
+    transform: rotateY(90deg) translateZ(-100px) scale(1.5);
+    transition: transform .5s, opacity .5s, -webkit-filter 1s ease-out;
+    -webkit-filter: saturate(0.4) blur(.5) brightness(1) contrast(5);
+}
+
+.img .frag2{
+    background-position: -75px 0;
+    transition-delay: .2s;
+    
+}
+.img .frag3{
+    background-position: -150px 0;
+    transition-delay: .4s;
+}
+.img .frag4{
+    background-position: -225px 0;
+    transition-delay: .6s;
+}
+.img .frag5{
+    background-position: -300px 0;
+    transition-delay: .8s;
+}
+.img .frag6{
+    background-position: -375px 0;
+    transition-delay: 1s;
+}
+
+.controls {
+    bottom: -20px;
+}
+
+.controls label {
+    display: block;
+    height: 10px;
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    background-color: #000;
+    cursor: pointer;
+    opacity: .2;
+    transition: opacity .5s;
+}
+
+.controls label:hover,
+.side-controls label:hover,
+#slide1:checked ~ .controls label:nth-of-type(1),
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3),
+#slide4:checked ~ .controls label:nth-of-type(4),
+#slide5:checked ~ .controls label:nth-of-type(5),
+#slide6:checked ~ .controls label:nth-of-type(6)
+{
+opacity: .8;
+}
+
+.side-controls label {
+    position: absolute;
+    display: block;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    top: 85%;
+    margin-top: -15px;
+    cursor: pointer;
+    opacity: .2;
+    transition: opacity .5s;
+}
+
+#slide1:checked ~ .side-controls label:nth-of-type(6),
+#slide2:checked ~ .side-controls label:nth-of-type(1),
+#slide3:checked ~ .side-controls label:nth-of-type(2),
+#slide4:checked ~ .side-controls label:nth-of-type(3),
+#slide5:checked ~ .side-controls label:nth-of-type(4),
+#slide6:checked ~ .side-controls label:nth-of-type(5){
+    border-right: 30px solid #000;
+    left: -40px;
+}
+
+#slide1:checked ~ .side-controls label:nth-of-type(2),
+#slide2:checked ~ .side-controls label:nth-of-type(3),
+#slide3:checked ~ .side-controls label:nth-of-type(4),
+#slide4:checked ~ .side-controls label:nth-of-type(5),
+#slide5:checked ~ .side-controls label:nth-of-type(6),
+#slide6:checked ~ .side-controls label:nth-of-type(1){
+    border-left: 30px solid #000;
+    right: -40px;
+}
+  .captions > div {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 2em;
+  color: transparent;
+  text-transform: uppercase;
+  text-shadow: 0 0 60px transparent;
+  transition: text-shadow 2s;
+  z-index: 0;
+}
+
+  
+}
+  
+  /*******EXTRA-SMALL MEDIA SCREENS*******/
+  
+  
+  @media screen and (max-width: 480px) {
+
+
+.top-menu {
+    color: #ccd;
+    text-shadow: 1px 1px 1px rgba(0,0,0, .9) ;
+    font-size: 1em;
+    text-align: center;
+    top:-20px;
+    left:  -20px;
+}
+
+.top-menu li{
+    margin-bottom:80px;
+    margin-left: 5px;
+}
+
+.top-menu a{
+    text-decoration: none;
+    color: inherit;
+    padding: 3px 2px;
+    border-radius: 7px;
+}
+.top-menu a:hover{
+    color: #FCFFF1;
+    background-color: #F8F6F3;
+}
+.logo{
+    position: relative;
+    top: 25px;
+    left: -25px;
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+.container {
+    margin: auto;
+    top: -130px;
+    width: 266px;
+    height: 173px;
+    margin: 0px auto;
+    font: 1em 'Rationale', sans-serif;
+}
+.img {
+    top: -13px;
+}
+  .img1 .frag {background-image: url(../images/tulipxs.png);background-size: cover;}
+.img2 .frag {background-image: url(../images/platexs.png);background-size: cover;}
+.img3 .frag {background-image: url(../images/mascarponexs.png);background-size: cover;}
+.img4 .frag {background-image: url(../images/malinaxs.png);background-size: cover;}
+.img5 .frag {background-image: url(../images/milkxs.png);background-size: cover;}
+.img6 .frag {background-image:url(../images/ciocolataxs.png);background-size: cover;
+}
+.frag {
+    width: 50px;
+    height: 173px;
+    float: left;
+    opacity: 0;
+    z-index: 0;
+    
+  transform-origin: center right;
+    transform: rotateY(90deg) translateZ(-100px) scale(1.5);
+    transition: transform .5s, opacity .5s, -webkit-filter 1s ease-out;
+    -webkit-filter: saturate(0.4) blur(.5) brightness(1) contrast(5);
+}
+
+.img .frag2{
+    background-position: -50px 0;
+    transition-delay: .2s;
+    
+}
+.img .frag3{
+    background-position: -100px 0;
+    transition-delay: .4s;
+}
+.img .frag4{
+    background-position: -150px 0;
+    transition-delay: .6s;
+}
+.img .frag5{
+    background-position: -200px 0;
+    transition-delay: .8s;
+}
+/*.img .frag6{
+    background-position: -250px 0;
+    transition-delay: 1s;
+}*/
+
+.controls {
+    bottom: -20px;
+}
+
+.controls label {
+    display: block;
+    height: 10px;
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    background-color: #000;
+    cursor: pointer;
+    opacity: .2;
+    transition: opacity .5s;
+}
+
+.controls label:hover,
+.side-controls label:hover,
+#slide1:checked ~ .controls label:nth-of-type(1),
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3),
+#slide4:checked ~ .controls label:nth-of-type(4),
+#slide5:checked ~ .controls label:nth-of-type(5),
+#slide6:checked ~ .controls label:nth-of-type(6)
+{
+opacity: .8;
+}
+
+.side-controls label {
+    position: absolute;
+    display: block;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    top: 80%;
+    margin-top: -15px;
+    cursor: pointer;
+    opacity: .2;
+    transition: opacity .5s;
+}
+
+#slide1:checked ~ .side-controls label:nth-of-type(6),
+#slide2:checked ~ .side-controls label:nth-of-type(1),
+#slide3:checked ~ .side-controls label:nth-of-type(2),
+#slide4:checked ~ .side-controls label:nth-of-type(3),
+#slide5:checked ~ .side-controls label:nth-of-type(4),
+#slide6:checked ~ .side-controls label:nth-of-type(5){
+    border-right: 20px solid #000;
+    left: -30px;
+}
+
+#slide1:checked ~ .side-controls label:nth-of-type(2),
+#slide2:checked ~ .side-controls label:nth-of-type(3),
+#slide3:checked ~ .side-controls label:nth-of-type(4),
+#slide4:checked ~ .side-controls label:nth-of-type(5),
+#slide5:checked ~ .side-controls label:nth-of-type(6),
+#slide6:checked ~ .side-controls label:nth-of-type(1){
+    border-left: 20px solid #000;
+    right: -30px;
+}
+.captions > div {
+  position: absolute;
+  bottom: 2px;
+  right:2px;
+  font-size: 1.5em;
+  color: transparent;
+  text-transform: uppercase;
+  text-shadow: 0 0 60px transparent;
+  transition: text-shadow 2s;
+  z-index: 0;
+}
+
+  }
