@@ -3,11 +3,11 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use \Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Session\Store;
-//use Request;
+use Request;
 use Illuminate\Support\Facades\Redirect;
 use Input;
 class PostController extends Controller {
@@ -41,18 +41,19 @@ class PostController extends Controller {
     public function show($id)
     {
         $posts = Post::find($id);
+        //dd($posts->title);
+        return view('post.post', compact('posts'));
        // $posts = Post::all()->where('id', '=', $id);
         //return view('post.post', compact('posts'));
         //$posts = $postModel->getShowPosts();
-        //return view('post.post', compact('posts'));
-       // ->with('post', Post::find('$id'));
-     return $posts;
+         // ->with('post', Post::find('$id'));
+     //return $posts;
     }
 
 	public function create()
 	{
 
-		return view('create');
+		return view('post.create');
 	}
 
 	/**
@@ -60,16 +61,27 @@ class PostController extends Controller {
 	 *
 	 * @return Response
 	 */
-    public function post_Store()
+    public function store() //Post $postModel, Request $request
     {
-        DB::table('posts')->insert
+       /* dd($request->all());
+        $postModel->create($request->all());
+        return redirect()->route('posts');
+    }*/
+   //public function post_store() //Requests\createPostRequest $request
+    //{
+        $input = Request::all();
+        Post::create($input);
+        //return $input;
+        //Post::create($request->all());
+    /* $id = DB::table('posts')->insertGetId
             ([
             'title' => Input::get('title'),
             'slug' => Input::get('slug'),
             'content' => Input::get('content'),
+            'published' => Input::get('published'),
             'published_at' => Input::get('published_at')
-             ]);
-        return Redirect('/');
+     ]);*/
+       return Redirect('/');
     }
 
 	/**
@@ -86,10 +98,10 @@ class PostController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit()
+	public function edit($id)
 	{
-
-        return view('edit')->with('posts')  ;
+        $posts = Post::findOrFail($id);
+        return view('edit', compact('posts'));
 	}
 
 	/**
@@ -98,16 +110,22 @@ class PostController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function post_update()
+	public function update($id)
 	{
-        $id = Input::get('id');
+        $posts = Post::findOrFail($id);
+        $posts->update(Request::all());
+       //$posts = Input::get($id);
+
         //Post::updateOrCreate
-        DB::table('posts')->update($id, array(
+      /*  $id = $request->Input('id');
+      DB::table('posts')->where('id', $id)->update([
             'title'=>Input::get('title'),
             'slug' => Input::get('slug'),
-            'content' => Input::get('content'),
-            'published_at' => Input::get('published_at')
-        ));
+            'content' => Input::get('content')*/
+           //'published' => Input::get('published')
+            //'published_at' => Input::get('published_at')
+       // ]);
+
 
         /*DB::table('posts')->update
         ([
@@ -117,7 +135,7 @@ class PostController extends Controller {
             'published_at' => Input::get('published_at')
         ]);*/
        // $posts->update($request->all());
-        return Redirect('/');
+        return Redirect('posts');
 	}
 
 	/**
@@ -131,7 +149,7 @@ class PostController extends Controller {
 
         return view('destroy');
     }
-	public function postDestroy()
+	public function destroy()
 	{
         DB::table('posts')->delete
         ([
@@ -140,5 +158,13 @@ class PostController extends Controller {
         ]);
         return Redirect('/');
 	}
+
+    /**
+     * @return string
+     */
+    public function getRestful()
+    {
+        return $this->restful;
+    }
 
 }

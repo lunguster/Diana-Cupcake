@@ -1,14 +1,8 @@
-{{--session_name('first');
-session_start();
-$_SESSION['test'] = 'beleberda';
-var_dump($_SESSION);
 
-echo $_COOKIE['first'];
-?>--}}
 
 
 @extends('app')
-
+@section('header')
 
     <div class="container">
         <div class="logo"></div>
@@ -118,7 +112,7 @@ echo $_COOKIE['first'];
 
 
 
-
+@stop
 
 
 @section('content')
@@ -126,18 +120,19 @@ echo $_COOKIE['first'];
 
 
     <div class="row">
-        @foreach($posts as $post)
-            <article class="col-md-4">
-                <h2>{!!$post->title!!}</h2>
-                <p>
-                    {!!$post->content!!}
-                </p>
-                <p>
-                    published:  {!!$post->published_at!!}
-                </p>
-                <p>{!!$post->id!!}</p>
-            </article>
-        @endforeach
-    </div>
-@stop
 
+            <article class="col-md-4">
+                <h2>{!!$posts->title!!}</h2>
+                <p>
+                    {!!$posts->content!!}
+                </p>
+                <p>
+                    published: {!!$posts->published_at!!}
+                </p>
+                <p>{!!$posts->id!!}</p>
+            </article>
+<p>{!! link_to_route('posts.edit', 'Edit', array($posts->id)) !!}</p>
+    </div>
+
+
+@stop

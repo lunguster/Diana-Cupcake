@@ -7,10 +7,11 @@ use Request;
 
 class Post extends Eloquent {
 
-    protected $fillabe = [
+    protected $fillable = [
         'title',
         'slug',
         'content',
+        'published',
         'published_at'
     ];
 
@@ -18,12 +19,6 @@ class Post extends Eloquent {
 
     public function getPublishedPosts(){
         $posts = $this->latest('published_at')->published()->get();
-
-        print_r($posts);
-
-        die();
-
-
         return $posts;
     }
     public function scopePublished($query){

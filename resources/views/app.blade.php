@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/fonts.css" />
     <link href='http://fonts.googleapis.com/css?family=Rationale' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="{{asset('css/main.css')}}" />
     <link rel="stylesheet" href="css/media.css" />
     <script type="text/javascript" src="libs/jquery/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -38,7 +38,7 @@
 </div>
 @include ('footer')
 <!--[if lt IE 9]>
-<script src="libs/html5shiv/es5-shim.min.js"></script>
+<script src="{{asset('libs/html5shiv/es5-shim.min.js')}}"></script>
 <script src="libs/html5shiv/html5shiv.min.js"></script>
 <script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
 <script src="libs/respond/respond.min.js"></script>

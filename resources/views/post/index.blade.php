@@ -115,19 +115,19 @@ echo $_COOKIE['first'];
     </header>
 
 
-@stop
+@endsection
 
 
 @section('content')
     <div>
         {!! link_to_route('posts.index', 'published') !!} &nbsp;&nbsp;&nbsp; {!! link_to_route('posts.unpublished', 'unpublished') !!}
     </div>
-    <div><a href="{{ URL::to('create') }}">Create</a> </div>
-    {!! link_to_route('editPosts', 'Edit') !!}
+    <div>{!! link_to_route('posts.create', 'create') !!} </div>
+
         <div class="row">
      @foreach($posts as $post)
         <article class="col-md-4">
-            <h2>{!! link_to_route('show', $post->title, array($post->id)) !!}</h2>
+            <h2>{!! link_to_route('posts.show', $post->title, array($post->id)) !!}</h2>
 
             <p>
               {!!$post->content!!}

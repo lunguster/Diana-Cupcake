@@ -1,16 +1,10 @@
 @extends('app')
 
 @section('content')
-    <h1>Edit an article</h1>
+    <h1>Write a new article</h1>
     <hr>
-    {!! Form::model($posts, ['method' => 'PATCH', 'url' => ['update', $posts->id]]) !!}
+{!! Form::open(['url' => 'create']) !!}
 
-
-    <div class="form-group">
-
-        {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
-    </div>
-    <hr>
     <div class="form-group">
         {!! Form::label('title', 'Title:') !!}
         {!! Form::text('title', null, ['class' => 'form-control']) !!}
@@ -25,22 +19,42 @@
         {!! Form::label('content', 'Continut:') !!}
         {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
     </div>
+    <br>
     <div class="form-group">
-        {!! Form::label('published', 'publicat: 1-da; 0-nu') !!}
+        {!! Form::label('published', 'publica: 1-da; 0-nu') !!}
         {!! Form::text('published', null, ['class' => 'form-control']) !!}
     </div>
-    <br>
     <br>
     <div class="form-group">
         {!! Form::label('published_at', 'publicat pe data:') !!}
         {!! Form::input('date', 'published_at', date('Y-d-m'), ['class' => 'form-control']) !!}
     </div>
     <br>
-  {{-- {!! Form::hidden('id', null) !!}--}}
     <div class="form-group">
 
-        {!! Form::submit('Update Article', ['class' => 'btn btn-primary form-control']) !!}
+        {!! Form::submit('Add Article', ['class' => 'btn btn-primary form-control']) !!}
+    </div>
+
+
+{!! Form::close() !!}
+<hr>
+    <h1>Delete article</h1>
+    <hr>
+    {!! Form::open(['action'=> 'PostController@destroy']) !!}
+    <div class="form-group">
+        {!! Form::label('id', 'Id:') !!}
+        {!! Form::text('id', null, ['class' => 'form-control']) !!}
+    </div>
+    <hr>
+
+    <br>
+    <div class="form-group">
+
+        {!! Form::submit('Delete Article', ['class' => 'btn btn-primary form-control']) !!}
     </div>
 
 
     {!! Form::close() !!}
+
+@stop
+
