@@ -3,7 +3,7 @@
 @section('content')
     <h1>Edit an article</h1>
     <hr>
-    {!! Form::model($posts, ['method' => 'PATCH', 'url' => ['update', $posts->id]]) !!}
+    {!! Form::model($posts, ['method' => 'PATCH', 'url' => ['posts', $posts->id]]) !!}
 
 
     <div class="form-group">

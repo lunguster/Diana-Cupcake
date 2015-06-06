@@ -1,15 +1,17 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+//use App\Http\Requests;
+//use App\Http\Controllers\Controller;
 use \Illuminate\Support\Facades\DB;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Session\Store;
-use Request;
+//use Request;
 use Illuminate\Support\Facades\Redirect;
 use Input;
+//use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 class PostController extends Controller {
         public $restful = 'true';
 	/**
@@ -61,7 +63,7 @@ class PostController extends Controller {
 	 *
 	 * @return Response
 	 */
-    public function store() //Post $postModel, Request $request
+    public function store(Request $request) //Post $postModel, Request $request
     {
        /* dd($request->all());
         $postModel->create($request->all());
@@ -69,7 +71,7 @@ class PostController extends Controller {
     }*/
    //public function post_store() //Requests\createPostRequest $request
     //{
-        $input = Request::all();
+        $input = $request->all();
         Post::create($input);
         //return $input;
         //Post::create($request->all());
@@ -81,7 +83,7 @@ class PostController extends Controller {
             'published' => Input::get('published'),
             'published_at' => Input::get('published_at')
      ]);*/
-       return Redirect('/');
+       return Redirect('store');
     }
 
 	/**
@@ -110,10 +112,10 @@ class PostController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
         $posts = Post::findOrFail($id);
-        $posts->update(Request::all());
+        $posts->update($request->all());
        //$posts = Input::get($id);
 
         //Post::updateOrCreate
@@ -135,7 +137,8 @@ class PostController extends Controller {
             'published_at' => Input::get('published_at')
         ]);*/
        // $posts->update($request->all());
-        return Redirect('posts');
+        //return Redirect('posts');
+        return $posts;
 	}
 
 	/**

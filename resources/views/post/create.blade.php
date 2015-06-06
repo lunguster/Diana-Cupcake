@@ -3,7 +3,7 @@
 @section('content')
     <h1>Write a new article</h1>
     <hr>
-{!! Form::open(['url' => 'create']) !!}
+{!! Form::open(['url' => 'posts']) !!}
 
     <div class="form-group">
         {!! Form::label('title', 'Title:') !!}

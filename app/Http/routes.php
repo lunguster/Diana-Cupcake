@@ -10,23 +10,24 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//$router->resource('posts', 'PostController');
+
 Route::get('/',['as'=> 'posts', 'uses' => 'PostController@index']);
 Route::get('unpublished',['as'=> 'posts.unpublished', 'uses' => 'PostController@unpublished']);
 Route::get('published',['as'=> 'posts.index', 'uses' => 'PostController@index']);
 
+$router->resource('posts', 'PostController');
 
-Route::get('posts/{id}/edit', ['as'=> 'posts.edit', 'uses' => 'PostController@edit']);
-Route::patch('update', 'PostController@update');
-Route::post('update/{id}', 'PostController@update');
-Route::get('home', 'HomeController@index');
+/*Route::get('posts/{id}/edit', ['as'=> 'posts.edit', 'uses' => 'PostController@edit']);
+Route::put('posts{id}',['as' => 'posts.update', 'uses' => 'PostController@update']);
+Route::patch('posts/{id}', 'PostController@update');
 
-Route::get('create', ['as' => 'posts.create', 'uses' => 'PostController@create']);
-Route::post('create', ['as' => 'posts.store', 'uses' => 'PostController@store']);
 Route::get('posts/{id}', ['as'=>'posts.show', 'uses'=> 'PostController@show']);
+Route::get('posts/create', ['as' => 'posts.create', 'uses' => 'PostController@create']);
+Route::post('posts', ['as' => 'posts.store', 'uses' => 'PostController@store']);
+
 //Route::get('destroy', ['as' => 'posts', 'uses' => 'PostController@delete']);
 Route::post('destroy', ['as'=> 'posts.destroy', 'uses'=> 'PostController@destroy']);
-
+*/
 
 /*Route::controllers([
 	'auth' => 'Auth\AuthController',
